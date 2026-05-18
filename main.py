@@ -54,18 +54,37 @@ ram_alternativ = ["()", "[]", "{}", "<>", "()]", "[)"]
 
 
 def skapa_eget_ansikte():
-    """
-    Låter användaren designa ett eget ansikte genom menyval.
-    Skriver ut resultatet.
-    """
-    # TODO: Implementera funktionen
-    # 1. Visa meny för ögon (nummer + tecken)
-    # 2. Fråga efter val (1-7)
-    # 3. Gör samma för mun (1-5)
-    # 4. Gör samma för ram (1-6)
-    # 5. Anropa skapa_ansikte() och skriv ut resultatet
-    pass
 
+    print("\nVälj ögon:")
+    for i, ogon in enumerate(ogon_alternativ, start=1):
+        print(f"{i}. {ogon}")
+
+    val_ogon = int(input("Val: ")) - 1
+
+    print("\nVälj mun:")
+    for i, mun in enumerate(mun_alternativ, start=1):
+        print(f"{i}. {mun}")
+
+    val_mun = int(input("Val: ")) - 1
+
+    print("\nVälj ram:")
+    for i, ram in enumerate(ram_alternativ, start=1):
+        print(f"{i}. {ram}")
+
+    val_ram = int(input("Val: ")) - 1
+
+
+    ansikte = skapa_ansikte(
+        ogon_alternativ[val_ogon],
+        mun_alternativ[val_mun],
+        ram_alternativ[val_ram]
+    )
+
+    print("\nDitt ansikte:")
+    print(ansikte)
+
+    return ansikte
+    
 
 def skapa_kluster():
     """
