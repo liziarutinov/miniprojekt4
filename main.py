@@ -4,42 +4,27 @@ Ett interaktivt program där användaren kan skapa, klustra och slumpa ASCII-ans
 """
 
 import random
+import json
 
 
 # === FUNKTIONER FÖR ANSIKTEN ===
 
 def skapa_ansikte(ogon, mun, ram):
-    """
-    Skapar ett ASCII-ansikte som en sträng.
-    
-    Parametrar:
-        ogon (str): Tecken för ögon (t.ex. "o", "-", "^", "x", "T", ">", "@")
-        mun (str): Tecken för mun (t.ex. "_", "o", "^", "x", "T")
-        ram (str): Två tecken för ram (t.ex. "()", "[]", "{}", "<>")
-    
-    Returnerar:
-        str: Ansiktet som en sträng, t.ex. "(o_o)"
-    """
-    # TODO: Implementera funktionen
-    # Tips: return ram[0] + ogon + mun + ogon + ram[1]
-    pass
+
+    return ram[0] + ogon + mun + ogon + ram[1]
 
 
 def slumpa_ansikte():
-    """
-    Skapar ett slumpmässigt ansikte.
-    
-    Returnerar:
-        str: Ett slumpmässigt ansikte
-    """
-    # TODO: Välj slumpmässiga delar från listorna nedan
-    # ogon_lista = ["o", "-", "^", "x", "T", ">", "@"]
-    # mun_lista = ["_", "o", "^", "x", "T"]
-    # ram_lista = ["()", "[]", "{}", "<>", "()]", "[)"]
-    
-    # Tips: Använd random.choice(lista) för varje del
-    # Tips: Anropa skapa_ansikte() med de slumpade delarna
-    pass
+   
+    ogon_lista = ["o", "-", "^", "x", "T", ">", "@"]
+    mun_lista = ["_", "o", "^", "x", "T"]
+    ram_lista = ["()", "[]", "{}", "<>", "()]", "[)"]
+
+    ogon = random.choice(ogon_lista)
+    mun = random.choice(mun_lista)
+    ram = random.choice(ram_lista)
+
+    return skapa_ansikte(ogon, mun, ram)
 
 
 # === FUNKTIONER FÖR KLUSTER ===
