@@ -87,32 +87,34 @@ def skapa_eget_ansikte():
     
 
 def skapa_kluster():
-    """
-    Låter användaren skapa ett kluster med samma ansikte.
-    Först väljer eller skapar användaren ett ansikte.
-    """
-    # TODO: Implementera funktionen
-    # 1. Fråga: Vill du använda ett befintligt ansikte eller skapa nytt?
-    # 2. Om nytt: anropa skapa_eget_ansikte() eller skapa_ansikte() direkt
-    # 3. Fråga efter bredd och höjd
-    # 4. Anropa skriv_ut_kluster()
-    pass
+
+    print("\n1. Skapa eget ansikte")
+    print("2. Använd slumpat ansikte")
+
+    val = input("Val: ")
+
+    if val == "1":
+        ansikte = skapa_eget_ansikte()
+    else:
+        ansikte = slumpa_ansikte()
+        print(f"Slumpat ansikte: {ansikte}")
+
+    bredd = int(input("Ange bredd: "))
+    hojd = int(input("Ange höjd: "))
+
+    skriv_ut_kluster(bredd, hojd, ansikte)
 
 
 def visa_slump_ansikte():
-    """Visar ett slumpmässigt ansikte."""
-    # TODO: Anropa slumpa_ansikte() och skriv ut resultatet
-    pass
+        print(slumpa_ansikte())
 
 
 def visa_slumpkluster():
-    """
-    Låter användaren skapa ett kluster med slumpade ansikten.
-    Frågar efter bredd och höjd.
-    """
-    # TODO: Fråga efter bredd och höjd
-    # TODO: Anropa skriv_ut_slumpkluster()
-    pass
+
+    bredd = int(input("Ange bredd: "))
+    hojd = int(input("Ange höjd: "))
+
+    skriv_ut_slumpkluster(bredd, hojd)
 
 
 # === HUVUDPROGRAM ===
@@ -147,31 +149,35 @@ def huvudprogram():
 # === EXTRA FUNKTIONER FÖR UTMANINGAR ===
 
 def farglagg_ansikte(ansikte, farg_kod):
-    """
-    Lägger till ANSI-färgkoder runt ett ansikte.
-    
-    Parametrar:
-        ansikte (str): Ansiktet som ska färgläggas
-        farg_kod (str): ANSI-färgkod (t.ex. "\033[91m")
-    
-    Returnerar:
-        str: Ansikte med färgkoder
-    """
-    # TODO: return farg_kod + ansikte + "\033[0m"
-    pass
+
+    return farg_kod + ansikte + "\033[0m"
 
 
 def spara_ansikte_till_json(ansikte, filnamn="sparade_ansikten.json"):
-    """Sparar ett ansikte till en JSON-fil."""
-    # TODO: Importera json
-    # TODO: Ladda befintlig lista, lägg till nytt ansikte, spara
-    pass
+
+    try:
+        with open(filnamn, "r", encoding="utf-8") as fil:
+            ansikten = json.load(fil)
+
+    except FileNotFoundError:
+        ansikten = []
+
+    ansikten.append(ansikte)
+
+    with open(filnamn, "w", encoding="utf-8") as fil:
+        json.dump(ansikten, fil, ensure_ascii=False, indent=4)
+
+    print("Ansikte sparat!")
 
 
 def ladda_ansikten_fran_json(filnamn="sparade_ansikten.json"):
-    """Laddar sparade ansikten från en JSON-fil."""
-    # TODO: Använd json.load() och returnera listan
-    pass
+
+    try:
+        with open(filnamn, "r", encoding="utf-8") as fil:
+            return json.load(fil)
+
+    except FileNotFoundError:
+        return []
 
 
 # === TURTLE-UTMANING (FÖR DIG MED TURTLE) ===
