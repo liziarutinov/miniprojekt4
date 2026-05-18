@@ -30,33 +30,19 @@ def slumpa_ansikte():
 # === FUNKTIONER FÖR KLUSTER ===
 
 def skriv_ut_kluster(bredd, hojd, ansikte):
-    """
-    Skriver ut ett kluster (rutnät) av samma ansikte.
-    
-    Parametrar:
-        bredd (int): Antal ansikten per rad
-        hojd (int): Antal rader
-        ansikte (str): Ansiktet som ska upprepas
-    """
-    # TODO: Implementera funktionen
-    # Tips: Använd nästlade loopar (for rad in range(hojd): for kolumn in range(bredd))
-    # Tips: print(ansikte, end=" ") för att skriva ut på samma rad
-    # Tips: print() efter innerloopen för att byta rad
-    pass
+
+    for rad in range(hojd):
+        for kolumn in range(bredd):
+            print(ansikte, end=" ")
+        print()
 
 
 def skriv_ut_slumpkluster(bredd, hojd):
-    """
-    Skriver ut ett kluster (rutnät) med slumpade ansikten.
-    
-    Parametrar:
-        bredd (int): Antal ansikten per rad
-        hojd (int): Antal rader
-    """
-    # TODO: Implementera funktionen
-    # Tips: Använd nästlade loopar
-    # Tips: Anropa slumpa_ansikte() för varje position
-    pass
+
+    for rad in range(hojd):
+        for kolumn in range(bredd):
+            print(slumpa_ansikte(), end=" ")
+        print()
 
 
 # === MENYFUNKTIONER ===
