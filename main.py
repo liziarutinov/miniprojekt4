@@ -183,17 +183,38 @@ def ladda_ansikten_fran_json(filnamn="sparade_ansikten.json"):
 # === TURTLE-UTMANING (FÖR DIG MED TURTLE) ===
 
 def rita_ansikte_med_turtle(ogon, mun, ram):
-    """
-    EXTRA UTMANING: Ritar ett ansikte med Turtle-grafik istället för ASCII.
-    Detta är för de som har tillgång till Turtle-biblioteket.
-    """
-    # TODO: Importera turtle
-    # TODO: Skapa en turtle
-    # TODO: Rita två cirklar som ögon
-    # TODO: Rita en båge som mun
-    # TODO: Rita en cirkel som huvud (ram)
-    # TODO: turtle.done()
-    pass
+
+    import turtle
+
+    penna = turtle.Turtle()
+    penna.speed(3)
+
+    # Huvud
+    penna.penup()
+    penna.goto(0, -100)
+    penna.pendown()
+    penna.circle(100)
+
+    # Vänster öga
+    penna.penup()
+    penna.goto(-40, 40)
+    penna.pendown()
+    penna.dot(20)
+
+    # Höger öga
+    penna.penup()
+    penna.goto(40, 40)
+    penna.pendown()
+    penna.dot(20)
+
+    # Mun
+    penna.penup()
+    penna.goto(-40, -20)
+    penna.setheading(-60)
+    penna.pendown()
+    penna.circle(50, 120)
+
+    turtle.done()
 
 
 # Starta programmet om filen körs direkt
